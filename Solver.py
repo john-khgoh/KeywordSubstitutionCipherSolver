@@ -56,7 +56,6 @@ def decrypt(phrase):
     #wordFinder(wordlist,phrase)
     #switchKey(phrase)
     
-#print(len(list(permutations(['a','b','c','d','e','f','g','h','i','j','k','l']))))
 #phrase = 'reluezntuotheepdesnygudotistl?lk'
 phrase = 'reluezntuotheepdesnygudotistllk' #This is the string you want to decipher
 decrypt(phrase)
