@@ -13,8 +13,10 @@ def switchKey(word): #Add keyword to front of alpha, without duplicates
     #alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     #key = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     #alpha='abcdefghijklmnopqrstuvwxyz'
+    removelist = ['-','\'',' ']
     key='abcdefghijklmnopqrstuvwxyz'
     newkey=word+key
+    newkey=newkey.translate(None,''.join(removelist)) #Removes character from removelist
     newkey=''.join(OrderedDict.fromkeys(newkey))
     return newkey
     
@@ -44,8 +46,8 @@ def decrypt(phrase):
         newphrase = ''
         newkey = switchKey(word)
         for char in phrase:
-            pos = alpha.find(char)
-            newphrase=newphrase+newkey[pos]
+            pos = newkey.find(char)
+            newphrase=newphrase+alpha[pos]
         sublist = wordFinder(wordlist,newphrase)
         if sublist: #If sublist is not empty, write to file
             f.write(str(sublist)+'\n')
@@ -56,9 +58,7 @@ def decrypt(phrase):
     #wordFinder(wordlist,phrase)
     #switchKey(phrase)
 
-#It would look better without hard-coding the phrase. But in practice command prompt is not very user friendly. 
-#phrase = 'reluezntuotheepdesnygudotistl?lk'
-phrase = 'reluezntuotheepdesnygudotistllk' #This is the string you want to decipher
+phrase = 'rvxydpxorhaxepzzoamxwaxigqaxgxwdlotxdvxniafxndxmdoqaxvrbtxdpnxfdlaxgnxksijxtgmixsglaalmxtdnxsdxtdnxph' #This is the string you want to decipher
 decrypt(phrase)
 
 
