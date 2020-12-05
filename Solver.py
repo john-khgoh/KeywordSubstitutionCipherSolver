@@ -35,7 +35,7 @@ def wordFinder(wordlist,phrase): #Find words from the wordlist in the phrase
 
 def decrypt(phrase):    
     wordlist = open('English3000.txt','r').read().split('\n') #Read from the word list
-    outputname = "Output" + str(datetime.now().strftime('-%Y%m%d-%H%M')) + ".txt" #Name format of output file
+    outputname = "Output\Output" + str(datetime.now().strftime('-%Y%m%d-%H%M')) + ".txt" #Name format of output file
     f = open(outputname,'a') #Write to file in append mode
     newwordlist = removeAlphaDup(wordlist)
     alpha='abcdefghijklmnopqrstuvwxyz'
@@ -55,7 +55,8 @@ def decrypt(phrase):
     #print(newwordlist)
     #wordFinder(wordlist,phrase)
     #switchKey(phrase)
-    
+
+#It would look better without hard-coding the phrase. But in practice command prompt is not very user friendly. 
 #phrase = 'reluezntuotheepdesnygudotistl?lk'
 phrase = 'reluezntuotheepdesnygudotistllk' #This is the string you want to decipher
 decrypt(phrase)
